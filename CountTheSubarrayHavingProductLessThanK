@@ -1,0 +1,13 @@
+int countSubArrayProductLessThanK(const vector<int>& a, int n, long long k) {
+        int left=0,right=0,count=0;
+        long long int prod=1;
+        while(right<a.size()){
+            prod = prod * a[right];
+            while(prod>=k)
+            prod = prod/a[left++];
+            count=count+(1+(right-left));
+            right++;
+        }
+        return count;
+        
+    }
